@@ -1,0 +1,232 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"><link rel="import" href="../bower_components/paper-styles/color.html"><link rel="import" href="../bower_components/paper-styles/shadow.html"><link rel="import" href="../bower_components/paper-styles/typography.html"><dom-module id="shared-styles"><template><style>
+      body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      #main {
+        display: flex;
+        flex: 1 0;
+      }
+
+      vaadin-grid {
+        flex: 0 1 20rem;
+        @apply(--shadow-elevation-8dp);
+      }
+
+      #pages {
+        display: flex;
+        flex: 1 1;
+        flex-direction: column;
+        min-width: 60%; /* fix weird behaviour */
+      }
+
+      #pages > div {
+        display: flex;
+        flex: 1 1;
+        flex-direction: column;
+      }
+
+      paper-button {
+        --paper-button-ink-color: var(--paper-yellow-500);
+      }
+
+      paper-tabs {
+        color: white;
+        background-color: var(--paper-indigo-500);
+      }
+
+      #reset {
+        margin: 0;
+        border-radius: 0;
+        background-color: var(--paper-indigo-300);
+        color: white;
+      }
+
+      #mainArea {
+        display: flex;
+        flex: 1 1;
+      }
+
+      #mainArea > div {
+        flex: 1 1;
+      }
+
+      #playground {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        /*flex-wrap: wrap;*/
+        align-items: center;
+        /*align-content: center;*/
+        justify-content: center;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      #playground #kertas {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #playground #kertas > div {
+        display: flex;
+        flex-direction: row;
+      }
+
+      #playground #kertas > div > div {
+        display: flex;
+      }
+
+      #playground #kertas paper-material{
+        box-sizing: border-box;
+        width: 2em;
+        height: 2em;
+        transition: width ease-in 0.2s,
+                    height ease-in 0.2s;
+      }
+
+      .right paper-material {
+        border-right: 0.1em solid var(--paper-green-500);
+      }
+
+      .top paper-material {
+        border-top: 0.1em solid var(--paper-green-500);
+      }
+
+      .left paper-material {
+        border-left: 0.1em solid var(--paper-green-500);
+      }
+
+      .bottom paper-material {
+        border-bottom: 0.1em solid var(--paper-green-500);
+      }
+
+      .cut paper-material {
+        background-color: var(--paper-green-100);
+      }
+
+      .dengklek paper-material {
+        border-color: var(--paper-red-500);
+      }
+
+      .cut.dengklek paper-material {
+        background-color: var(--paper-red-100);
+      }
+
+      #playground #kertas .collapse-col paper-material {
+        width: 0;
+      }
+
+      #playground #kertas .collapse-row paper-material {
+        height: 0;
+      }
+
+      #menang, #kalah {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+
+        @apply(--paper-font-display1);
+      }
+
+      #menang {
+        background-color: var(--paper-green-300);
+      }
+
+      #kalah {
+        background-color: var(--paper-red-300);
+      }
+
+      #input {
+        display: flex;
+        flex: 0 0;
+        height: 56px;
+        @apply(--shadow-elevation-2dp);
+      }
+
+      #input > div {
+        display: flex;
+        flex: 1 1;
+        min-width: 0;
+        background-color: var(--paper-green-500);
+        color: white;
+      }
+
+      #input > div > div:nth-child(1) {
+        display: flex;
+        flex: 0 1 56px;
+        min-width: 0px;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--paper-green-700);
+        @apply(--shadow-elevation-4dp);
+        overflow: hidden;
+      }
+
+      #input > div > div:nth-child(2) {
+        display: flex;
+        align-items: center;
+        padding: 1em;
+        flex: 1 1;
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      #info {
+        display: flex;
+        flex: 0 0;
+        height: 56px;
+        @apply(--shadow-elevation-2dp);
+      }
+
+      #info > div {
+        display: flex;
+        flex: 1 1;
+        min-width: 0;
+        background-color: var(--paper-red-500);
+        color: white;
+      }
+
+      #info > div > div:nth-child(1) {
+        display: flex;
+        flex: 0 1 56px;
+        min-width: 0;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--paper-red-700);
+        @apply(--shadow-elevation-4dp);
+        overflow: hidden;
+      }
+
+      #info > div > div:nth-child(2) {
+        display: flex;
+        align-items: center;
+        padding: 1em;
+        flex: 1 1;
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      #info .disabled {
+        background-color: var(--paper-grey-500);
+      }
+
+      #info .disabled > div:nth-child(1) {
+        background-color: var(--paper-grey-700);
+      }
+
+      #display_code {
+        flex: 1 0 0;
+        overflow: auto;
+        margin: 0;
+        padding: 1em;
+
+        @apply(--paper-font-code1);
+      }
+    </style></template></dom-module>
