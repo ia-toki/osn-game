@@ -1,0 +1,63 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+--><link rel="import" href="../app-scroll-effects-behavior.html">
+
+<script>
+  /**
+   * Upon scrolling past a threshold, CSS transition the font size of a designated title element
+   * between two values.
+   */
+  Polymer.AppLayout.registerEffect('resize-snapped-title', {
+    /**
+     * @this Polymer.AppLayout.ElementWithBackground
+     */
+    setUp: function setUp(config) {
+      var title = this._getDOMRef('mainTitle');
+      var condensedTitle = this._getDOMRef('condensedTitle');
+      var duration = config.duration || '0.2s';
+      var fx = {};
+
+      if (!condensedTitle) {
+        console.warn('Scroll effect `resize-snapped-title`: undefined `condensed-title`');
+        return false;
+      }
+      if (!title) {
+        console.warn('Scroll effect `resize-snapped-title`: undefined `main-title`');
+        return false;
+      }
+
+      title.style.transitionProperty = 'opacity';
+      title.style.transitionDuration = duration;
+      condensedTitle.style.transitionProperty = 'opacity';
+      condensedTitle.style.transitionDuration = duration;
+      fx.condensedTitle = condensedTitle;
+      fx.title = title;
+      this._fxResizeSnappedTitle = fx;
+    },
+    /** @this Polymer.AppLayout.ElementWithBackground */
+    run: function run(p, y) {
+      var fx = this._fxResizeSnappedTitle;
+      if (p > 0) {
+        fx.title.style.opacity = 0;
+        fx.condensedTitle.style.opacity = 1;
+      } else {
+        fx.title.style.opacity = 1;
+        fx.condensedTitle.style.opacity = 0;
+      }
+    },
+    /** @this Polymer.AppLayout.ElementWithBackground */
+    tearDown: function tearDown() {
+      var fx = this._fxResizeSnappedTitle;
+      fx.title.style.transition = '';
+      fx.condensedTitle.style.transition = '';
+      delete this._fxResizeSnappedTitle;
+    }
+  });
+</script>
+<link rel="prefetch" href="../../../polymer/polymer.html"><link rel="prefetch" href="../../../polymer/lib/legacy/legacy-element-mixin.html"><link rel="prefetch" href="../../../shadycss/apply-shim.html"><link rel="prefetch" href="../../../shadycss/apply-shim.min.js"><link rel="prefetch" href="../../../polymer/lib/mixins/element-mixin.html"><link rel="prefetch" href="../../../polymer/lib/utils/boot.html"><link rel="prefetch" href="../../../polymer/lib/utils/mixin.html"><link rel="prefetch" href="../../../polymer/lib/utils/case-map.html"><link rel="prefetch" href="../../../polymer/lib/utils/style-gather.html"><link rel="prefetch" href="../../../polymer/lib/utils/resolve-url.html"><link rel="prefetch" href="../../../polymer/lib/elements/dom-module.html"><link rel="prefetch" href="../../../polymer/lib/mixins/property-effects.html"><link rel="prefetch" href="../../../polymer/lib/utils/path.html"><link rel="prefetch" href="../../../polymer/lib/mixins/property-accessors.html"><link rel="prefetch" href="../../../polymer/lib/utils/async.html"><link rel="prefetch" href="../../../polymer/lib/mixins/template-stamp.html"><link rel="prefetch" href="../../../polymer/lib/mixins/gesture-event-listeners.html"><link rel="prefetch" href="../../../polymer/lib/utils/gestures.html"><link rel="prefetch" href="../../../polymer/lib/utils/debounce.html"><link rel="prefetch" href="../../../polymer/lib/utils/import-href.html"><link rel="prefetch" href="../../../polymer/lib/utils/render-status.html"><link rel="prefetch" href="../../../polymer/lib/utils/unresolved.html"><link rel="prefetch" href="../../../polymer/lib/legacy/polymer.dom.html"><link rel="prefetch" href="../../../polymer/lib/utils/flattened-nodes-observer.html"><link rel="prefetch" href="../../../polymer/lib/utils/array-splice.html"><link rel="prefetch" href="../../../polymer/lib/utils/flush.html"><link rel="prefetch" href="../../../polymer/lib/legacy/polymer-fn.html"><link rel="prefetch" href="../../../polymer/lib/legacy/class.html"><link rel="prefetch" href="../../../polymer/lib/legacy/templatizer-behavior.html"><link rel="prefetch" href="../../../polymer/lib/utils/templatize.html"><link rel="prefetch" href="../../../polymer/lib/mixins/mutable-data.html"><link rel="prefetch" href="../../../polymer/lib/elements/dom-bind.html"><link rel="prefetch" href="../../../polymer/lib/elements/dom-repeat.html"><link rel="prefetch" href="../../../polymer/polymer-element.html"><link rel="prefetch" href="../../../polymer/lib/elements/dom-if.html"><link rel="prefetch" href="../../../polymer/lib/elements/array-selector.html"><link rel="prefetch" href="../../../polymer/lib/elements/custom-style.html"><link rel="prefetch" href="../../../shadycss/custom-style-interface.html"><link rel="prefetch" href="../../../shadycss/custom-style-interface.min.js"><link rel="prefetch" href="../../../polymer/lib/legacy/mutable-data-behavior.html"><link rel="prefetch" href="../../../iron-scroll-target-behavior/iron-scroll-target-behavior.html"><link rel="prefetch" href="../../helpers/helpers.html">

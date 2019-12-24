@@ -1,0 +1,87 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+--><link rel="import" href="../polymer/polymer.html">
+
+<script>
+  /**
+  Polymer.IronFormElementBehavior enables a custom element to be included
+  in an `iron-form`.
+
+  Events `iron-form-element-register` and `iron-form-element-unregister` are not fired on Polymer 2.0.
+
+  @demo demo/index.html
+  @polymerBehavior
+  */
+  Polymer.IronFormElementBehavior = {
+
+    properties: {
+      /**
+       * Fired when the element is added to an `iron-form`.
+       *
+       * @event iron-form-element-register
+       */
+
+      /**
+       * Fired when the element is removed from an `iron-form`.
+       *
+       * @event iron-form-element-unregister
+       */
+       
+      /**
+       * The name of this element.
+       */
+      name: {
+        type: String
+      },
+
+      /**
+       * The value for this element.
+       */
+      value: {
+        notify: true,
+        type: String
+      },
+
+      /**
+       * Set to true to mark the input as required. If used in a form, a
+       * custom element that uses this behavior should also use
+       * Polymer.IronValidatableBehavior and define a custom validation method.
+       * Otherwise, a `required` element will always be considered valid.
+       * It's also strongly recommended to provide a visual style for the element
+       * when its value is invalid.
+       */
+      required: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * The form that the element is registered to.
+       */
+      _parentForm: {
+        type: Object
+      }
+    },
+
+    attached: Polymer.Element ? null : function() {
+      // Note: the iron-form that this element belongs to will set this
+      // element's _parentForm property when handling this event.
+      this.fire('iron-form-element-register');
+    },
+
+    detached: Polymer.Element ? null : function() {
+      if (this._parentForm) {
+        this._parentForm.fire('iron-form-element-unregister', {target: this});
+      }
+    }
+
+  };
+
+</script>
+<link rel="prefetch" href="../polymer/lib/legacy/legacy-element-mixin.html"><link rel="prefetch" href="../shadycss/apply-shim.html"><link rel="prefetch" href="../shadycss/apply-shim.min.js"><link rel="prefetch" href="../polymer/lib/mixins/element-mixin.html"><link rel="prefetch" href="../polymer/lib/utils/boot.html"><link rel="prefetch" href="../polymer/lib/utils/mixin.html"><link rel="prefetch" href="../polymer/lib/utils/case-map.html"><link rel="prefetch" href="../polymer/lib/utils/style-gather.html"><link rel="prefetch" href="../polymer/lib/utils/resolve-url.html"><link rel="prefetch" href="../polymer/lib/elements/dom-module.html"><link rel="prefetch" href="../polymer/lib/mixins/property-effects.html"><link rel="prefetch" href="../polymer/lib/utils/path.html"><link rel="prefetch" href="../polymer/lib/mixins/property-accessors.html"><link rel="prefetch" href="../polymer/lib/utils/async.html"><link rel="prefetch" href="../polymer/lib/mixins/template-stamp.html"><link rel="prefetch" href="../polymer/lib/mixins/gesture-event-listeners.html"><link rel="prefetch" href="../polymer/lib/utils/gestures.html"><link rel="prefetch" href="../polymer/lib/utils/debounce.html"><link rel="prefetch" href="../polymer/lib/utils/import-href.html"><link rel="prefetch" href="../polymer/lib/utils/render-status.html"><link rel="prefetch" href="../polymer/lib/utils/unresolved.html"><link rel="prefetch" href="../polymer/lib/legacy/polymer.dom.html"><link rel="prefetch" href="../polymer/lib/utils/flattened-nodes-observer.html"><link rel="prefetch" href="../polymer/lib/utils/array-splice.html"><link rel="prefetch" href="../polymer/lib/utils/flush.html"><link rel="prefetch" href="../polymer/lib/legacy/polymer-fn.html"><link rel="prefetch" href="../polymer/lib/legacy/class.html"><link rel="prefetch" href="../polymer/lib/legacy/templatizer-behavior.html"><link rel="prefetch" href="../polymer/lib/utils/templatize.html"><link rel="prefetch" href="../polymer/lib/mixins/mutable-data.html"><link rel="prefetch" href="../polymer/lib/elements/dom-bind.html"><link rel="prefetch" href="../polymer/lib/elements/dom-repeat.html"><link rel="prefetch" href="../polymer/polymer-element.html"><link rel="prefetch" href="../polymer/lib/elements/dom-if.html"><link rel="prefetch" href="../polymer/lib/elements/array-selector.html"><link rel="prefetch" href="../polymer/lib/elements/custom-style.html"><link rel="prefetch" href="../shadycss/custom-style-interface.html"><link rel="prefetch" href="../shadycss/custom-style-interface.min.js"><link rel="prefetch" href="../polymer/lib/legacy/mutable-data-behavior.html">
