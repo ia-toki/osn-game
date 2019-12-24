@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Tebak Angka</title>
+		<link rel="shortcut icon" type="image/ico" href='assets/img/favicon.ico'>
+
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-dialog.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/layout.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+	</head>
+	<body>
+		<div class="main-container">
+			<header>
+				<div class="container">
+					<div class="col-md-12">
+						<div class="clearfix">
+							<div class="pull-left">
+								<img class="logo" src="assets/img/logo.png" alt="Logo Tokilearning"/>
+							</div>
+							<div class="title pull-left">
+								<h1>Olimpiade Sains Nasional</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<div class="clearfix"></div>
+			<div class="content">
+				<div class="container">
+					<div class="inner-container clearfix">
+				        <div class="col-md-12 main-content clearfix">
+				            <div>
+
+				            	<div class="title">
+				            			<h1>Tebak Angka</h1>
+				            	</div>
+				            	<div class="row">
+				            		<div class="col-md-8">
+				            			<div class="title">
+				            				<h2>Your Guess</h2>
+				            				<h3 id="remaining" class="remaining"></h3>
+				            			</div>
+				            			<br><br>
+				            			<div style="padding: 30px;">
+				            				<!-- <p class="text-center">Write the numbers seperated by space</p> -->
+				            				<div id="number">
+				            					<p id="button_init" class="button_init">Please Click Play Button</p>
+				            				</div>
+				            				<!-- <textarea id="text" class="form-control" rows="10"></textarea> -->
+				            				<br>
+				            				<p class="red text-center" id="warning"></p>
+				            			</div>
+				            			<br><br><br>
+				            			<div class="text-center">
+				            				<button class="btn btn-danger" id="guessButton"><h2>Submit Guess</h2></button>
+				            				<button class="btn btn-danger" id="answerButton"><h2>Answer</h2></button>
+				            			</div>
+				            		</div>
+				            		<div class="col-md-4">
+				            			<div>
+				            				<div class="title"><h2>Interaction</h2></div>
+				            				<!-- <textarea id="textarea" class="terminal col-md-12" rows="4" readonly="true"></textarea> -->
+				            				<div id="interaction"></div>
+				            			</div>
+				            			<div class="row-span">
+				            				<div class="col-md-12 title">
+				            					<h2>Subtask Indicator</h2>
+				            				</div>
+				            				<div class="span-6">
+				            					<div id="tc-1" class="btn btn-danger subtask col-md-12">
+				            						<h1>S1</h1>
+				            					</div>
+				            				</div>
+				            				<div class="span-6">
+				            					<div id="tc-2" class="btn btn-danger subtask col-md-12">
+				            						<h1>S2</h1>
+				            					</div>
+				            				</div>
+				            			</div>
+				            			<div class="clearfix"></div>
+				            			<div class="row-span">
+				            				<div class="col-md-12 title"><h2>Menu</h2></div>
+				            				<div class="span-5">
+				            					<select class="form-control" id="testcase">
+				            						<option value="1">Subtask 1</option>
+				            						<option value="2">Subtask 2</option>
+				            					</select>
+				            				</div>
+				            				<div class="span-4">
+				            					<button class="btn btn-primary btn-block" id="play">Play</button>
+				            				</div>
+				            				<div class="span-3">
+				            					<button class="btn btn-primary btn-block" id="reset">Reset</button>
+				            				</div>
+				            			</div>
+				            			<div class="clearfix"></div>
+				            				<br>
+				            			<div class="row-span">
+				            				<div class="span-12">
+				            					<button class="btn btn-success btn-block" id="source"><h2>Download Source Code</h2></button>
+				            				</div>
+				            			</div>
+				            			<div class="clearfix"></div>
+				            			<br>
+				            			<div class="row-span">
+				            				<div class="span-6">
+				            					<button class="btn btn-info btn-block" id="help">Help</button>
+				            				</div>
+				            				<div class="span-6">
+				            					<button class="btn btn-info btn-block" id="about">About</button>
+				            				</div>
+				            			</div>
+				            		</div>
+
+				            	</div>
+
+
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<footer>
+			<div class="container">
+				<div class="pull-left first">
+					<div class="col-md-12">
+						<div class="copyright">
+							&#169; 2014 Tim Olimpiade Komputer Indonesia
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script type="text/javascript" data-main="assets/js/custom/config.js" src="assets/js/vendor/require.js"></script>
+	</body>
+</html>
